@@ -1,0 +1,6 @@
+---
+- hosts: draco_splunk
+  gather_facts: false
+  become: yes
+  roles:
+    - user_provision

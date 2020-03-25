@@ -1,0 +1,17 @@
+[all:vars]
+ansible_user=tron
+[draco_splunk]
+node1 ansible_host=splunkmaster.gvegas44.local
+node2 ansible_host=splunksh1.gvegas44.local
+
+[search_head]
+node1
+
+[license_master]
+node1
+
+[search_peer]
+node2
+
+[standalone]
+node2

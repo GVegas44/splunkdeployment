@@ -1,0 +1,7 @@
+---
+
+ansible:
+    user: "tron"
+    usergroup: "tron"
+    sudogroup: "wheel"
+    sudoer: "tron"

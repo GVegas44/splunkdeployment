@@ -1,0 +1,29 @@
+---
+- name: create user group
+  group:
+    name: "{{ ansible.user }}"
+    state: present
+
+- name: create user "{{ ansible.user }}"
+  user:
+    name: "{{ ansible.user }}"
+    comment: Automation
+    group: "{{ ansible.user }}"
+    state: present
+    groups:
+      - "{{ ansible.usergroup }}"
+      - "{{ ansible.sudogroup }}"
+
+- name: set authorized key
+  authorized_key:
+    user: "{{ ansible.user }}"
+    key: "{{ lookup('file', '/root/.ssh/ansible.id_rsa.pub') }}"
+    comment: 'ansible automation'
+    state: present
+
+- name: deploy sudoers.d file
+  template:
+    src: sudoers.j2
+    dest: /etc/sudoers.d/{{ ansible.user }}
+    validate: 'visudo -cf %s'
+    mode: 0440
