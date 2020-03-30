@@ -1,7 +1,64 @@
 ---
 
+host:
+    work_dir: "/ansible/155cpt"
+
 ansible:
     user: "tron"
     usergroup: "tron"
     sudogroup: "wheel"
     sudoer: "tron"
+
+splunk:
+    opt: &opt "/opt"
+    user: "splunk"
+    group: "splunk"
+    home: "/opt/splunk"
+    exec: "/opt/splunk/bin/splunk"
+    admin_user: admin
+    password: "1qaz2wsx!QAZ@WSX"
+    secret: "1qaz2wsx!QAZ@WSX"
+    pass4SymmKey: "1qaz2wsx!QAZ@WSX"
+    license: "files/license.lic"
+    work_dir: "/tmp/splunk"
+    pkg: "splunk-8.0.1-6db836e2fb9e-linux-2.6-x86_64.rpm"
+    pkg_hash: "dc331cb6ea2a29ff547cd125d1edccec4592bf8e5a5f6299e549cea215efdbb1"
+    mgmt_port: 8089
+    ssl_dir: splunk_asc
+    web_port: 8000
+    web_enableSSL: True
+    web_ssl_cert: "asc-webcert.pem"
+    web_ssl_privKey: "asc-webcert_priv.key"
+    web_ssl_privKey_password: # Optional, see enable-ssl_web.yml
+    server_ssl_cert:
+
+standalone:
+    password: pandapanda
+    admin_user: admin
+    indexer_url: "splunksh1.gvegas44.local"
+
+idxc:
+    secret: "1qaz2wsx!QAZ@WSX"
+    pass4SymmKey: "1qaz2wsx!QAZ@WSX"
+    label: asc_splunk
+    cluster: False
+    receiving_port: 9997
+    search_factor: 2
+    replication_factor: 2
+    replication_port: 9701
+
+license_master_url: "splunkmaster.gvegs44.local"
+cluster_master_url: "https://192.168.4.40"
+shc_captain_url: "https://192.168.4.45"
+deployer_url: "https://192.168.4.40"
+enable_service: False
+receiving_port: 9997
+search_factor: 2
+service_name: Splunkd
+
+app_paths:
+    default: "/opt/splunk/etc/apps"
+    shc: "/opt/splunk/etc/shcluster/apps"
+    idxc: "opt/splunk/etc/master-apps"
+    deployment: "/opt/splunk/etc/deployment-apps"
+

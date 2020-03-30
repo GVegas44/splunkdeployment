@@ -4,8 +4,8 @@ Edit Inventory file to reflect your environment
 
 Prerequisites 
 Run as root
-1.	# ssh-keygen
-2.	#/root/.ssh/ansible.id_rsa
+1.	ssh-keygen
+2.	/root/.ssh/ansible.id_rsa
 3.	Enter
 4.	Enter
 
