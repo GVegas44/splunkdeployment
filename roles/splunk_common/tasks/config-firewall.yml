@@ -9,6 +9,7 @@
   loop:
     - "{{ splunk.web_port }}/tcp"
     - "{{ splunk.mgmt_port }}/tcp"
+    - "{{ splunk.forwarder_port}}/tcp"
   tags:
     - firewall
 

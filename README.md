@@ -12,3 +12,15 @@ Run as root
 Running the playbook
 1.	ansible-playbook site.yml --extra-vars 'ansible_user=root' -k
 2.	ssh password
+
+Splunk Playbook Working:
+TODO
+Install License
+Add Apps
+Add Dashboards
+Enable Receiving
+Create Index
+SSL Encryption
+SSL Forwarder Encrytion
+
+Splunk Removal Playbook Working

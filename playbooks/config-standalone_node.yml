@@ -3,6 +3,6 @@
   become: yes
   roles:
     - splunk_common
-    - standalone
+#    - standalone
     - license_master
   

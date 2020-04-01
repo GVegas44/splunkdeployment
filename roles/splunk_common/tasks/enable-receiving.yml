@@ -2,7 +2,7 @@
 - name: confiure recieving port
   ini_file:
     dest: "{{ splunk.home }}/etc/system/local/inputs.conf"
-    section: "splunktcp://{{ splunk.receiving_port }}"
+    section: "splunktcp://{{ splunk.forwarding_port }}"
     option: "disabled"
     value: "0"
     owner: "{{ splunk.user }}"

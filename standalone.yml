@@ -1,7 +1,7 @@
 ---
 # playbook for all-in-one (AIO) splunk deployment
 -  import_playbook: playbooks/config-standalone_node.yml
--  import_playbook: playbooks/config-standalone_ldap.yml
+ #-  import_playbook: playbooks/config-standalone_ldap.yml
 
 ...
 

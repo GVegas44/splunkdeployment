@@ -16,13 +16,14 @@ splunk:
     home: "/opt/splunk"
     exec: "/opt/splunk/bin/splunk"
     admin_user: admin
-    password: "1qaz2wsx!QAZ@WSX"
-    secret: "1qaz2wsx!QAZ@WSX"
-    pass4SymmKey: "1qaz2wsx!QAZ@WSX"
+    password: "Tr0nRul3z@1$$CPT"
+    secret: "Tr0nRul3z@1$$CPT"
+    pass4SymmKey: "Tr0nRul3z@1$$CPT"
     license: "files/license.lic"
     work_dir: "/tmp/splunk"
     pkg: "splunk-8.0.1-6db836e2fb9e-linux-2.6-x86_64.rpm"
     pkg_hash: "dc331cb6ea2a29ff547cd125d1edccec4592bf8e5a5f6299e549cea215efdbb1"
+    forwarder_port: 9997
     mgmt_port: 8089
     ssl_dir: splunk_asc
     web_port: 8000
@@ -31,9 +32,10 @@ splunk:
     web_ssl_privKey: "asc-webcert_priv.key"
     web_ssl_privKey_password: # Optional, see enable-ssl_web.yml
     server_ssl_cert:
+    service_name: "Splunkd"
 
 standalone:
-    password: pandapanda
+    password: "Tr0nRul3z@1$$CPT" 
     admin_user: admin
     indexer_url: "splunksh1.gvegas44.local"
 
