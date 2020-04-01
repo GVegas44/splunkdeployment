@@ -1,0 +1,6 @@
+---
+# handlers file for license_master
+- name: "restart Splunkd"
+  include_tasks: ../../splunk_common/handlers/main.yml
+
+

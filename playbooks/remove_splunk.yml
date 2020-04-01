@@ -1,0 +1,40 @@
+# This playbook will remove splunk from all hosts
+---
+- hosts:
+    - all 
+  become: yes
+  become_user: root
+
+  vars:
+    splunk_pkg: splunk
+
+  tasks:
+    - name: stop splunkd service
+      systemd:
+        name: "{{ splunk.service_name }}"
+        state: stopped
+
+    - name: disable Splunkd service
+      systemd:
+        name: "{{ splunk.service_name }}"
+        enabled: no
+
+    - name: uninstall splunk package
+      yum:
+        name: "{{ splunk_pkg }}"
+        state: absent
+
+    - name: remove splunk directory
+      file:
+        path: "{{ splunk.home }}" 
+        state: absent
+
+    - name: remove splunk systemd unit files
+      file:
+        path: "/etc/systemd/system/{{ splunk.service_name }}.service"
+        state: absent
+
+    - name: reload systemd
+      systemd:
+        daemon_reload: yes 
+
