@@ -1,0 +1,5 @@
+splunk ALL=(root) NOPASSWD: /usr/bin/systemctl restart Splunkd.service
+splunk ALL=(root) NOPASSWD: /usr/bin/systemctl stop Splunkd.service
+splunk ALL=(root) NOPASSWD: /usr/bin/systemctl start Splunkd.service 
+splunk ALL=(root) NOPASSWD: /usr/bin/systemctl status Splunkd.service
+splunk ALL=(root) NOPASSWD: /opt/splunk/bin/splunk start --accept-license --answer-yes --no-prompt

@@ -1,0 +1,12 @@
+---
+#
+- name: Set node as license slave
+  command: "{{ splunk.exec }} edit licenser-localslave -master_uri {{ splunk.license_master_url }}:{{ splunk.mgmt_port }} -auth '{{ splunk.admin_user }}:{{ splunk.password }}'"
+  become: yes
+  become_user: "{{ splunk.user }}"
+  register: linux_set_lic_slave
+  notify:
+    - restart Splunkd
+  tags: 
+    - license_slave
+

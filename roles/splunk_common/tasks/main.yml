@@ -1,0 +1,16 @@
+---
+# tasks file for splunk common
+- include_tasks: install-splunk_rpm.yml
+- include_tasks: install-user_seed.yml
+- include_tasks: enable-boot_start.yml
+- include_tasks: config-firewall.yml
+- include_tasks: push-web_certs.yml
+- include_tasks: enable-ssl_web.yml
+- include_tasks: start-splunk_server.yml
+
+- name: wait for Splunkd to start
+  wait_for:
+    port: "{{ splunk.mgmt_port }}"
+    delay: 5
+...
+

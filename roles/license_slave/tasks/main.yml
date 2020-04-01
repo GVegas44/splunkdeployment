@@ -1,0 +1,4 @@
+---
+# tasks file for license_slave
+- include_tasks: config-license_slave.yml
+

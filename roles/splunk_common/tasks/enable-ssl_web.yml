@@ -1,0 +1,51 @@
+---
+- name: Enable Web SSL
+  ini_file:
+    dest: "{{ splunk.home }}/etc/system/local/web.conf"
+    section: settings
+    option: "enableSplunkWebSSL"
+    value: "True"
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+  when:
+    - splunk.web_enableSSL is defined
+    - splunk.web_enableSSL
+
+- name: Set Web certificate path
+  ini_file:
+    dest: "{{ splunk.home }}/etc/system/local/web.conf"
+    section: settings
+    option: "serverCert"
+    value: "{{ splunk.home }}/etc/auth/{{ splunk.ssl_dir }}/{{ splunk.web_ssl_cert }}"
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+  when:
+    - splunk.web_ssl_cert is defined
+    - splunk.web_ssl_cert
+
+
+- name: Set Web private key path
+  ini_file:
+    dest: "{{ splunk.home }}/etc/system/local/web.conf"
+    section: settings
+    option: "privKeyPath"
+    value: "{{ splunk.home }}/etc/auth/{{ splunk.ssl_dir }}/{{ splunk.web_ssl_privKey }}"
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+  when:
+    - splunk.web_ssl_privKey is defined
+    - splunk.web_ssl_privKey
+
+- name: Set Web private key password
+# Note: Splunk Web does not support password-protected private keys.
+  ini_file:
+    dest: "{{ splunk.home }}/etc/system/local/web.conf"
+    section: settings
+    option: "sslPassword"
+    value: "{{ splunk.web_ssl_privKey_password }}"
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+  when:
+    - splunk.web_ssl_privKey_password is defined
+    - splunk.web_ssl_privKey_password
+

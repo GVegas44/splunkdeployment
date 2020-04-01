@@ -1,0 +1,9 @@
+---
+#
+- name: start Splunkd
+  command: /opt/splunk/bin/splunk start
+  tags:
+   - runonce
+   - startup
+   - install
+

@@ -1,0 +1,15 @@
+---
+# tasks file for standalone
+
+- name: configure current node connection with standalone search head
+  become: yes
+  become_user: "{{ splunk.user }}"
+  command: "{{ splunk.exec }} add search-server {{ splunk.standalone.indexer_url }}:{{ splunk.mgmt_port }} -auth {{ splunk.admin_user }}:{{ splunk.password }} -remoteUsername {{ splunk.standalone.admin_user }} -remotePassword {{ splunk.standalone.password }}"
+  register: task_retval
+  when:
+    - splunk.standalone.indexer_url is defined
+    - splunk.standalone.indexer_url
+  notify:
+    - "restart {{ splunk.service_name }}"  
+
+- include_tasks: ../../splunk_common/tasks/enable-receiving.yml

@@ -1,0 +1,30 @@
+[authentication]
+authSettings = {{ splunk.ldap.strategy }}
+authType = LDAP
+
+[roleMap_{{ splunk.ldap.strategy }}]
+admin = splunk_admin
+user = splunk_users
+
+[{{ splunk.ldap.strategy }}]
+SSLEnabled = 1
+anonymous_referrals = 1
+bindDN = {{ splunk.ldap.bindDN }}
+bindDNpassword = {{ splunk.ldap.bindDNpassword }}
+charset = utf8
+emailAttribute = mail
+enableRangeRetrieval = 0
+groupBaseDN = {{ splunk.ldap.groupBaseDN }}
+groupMappingAttribute = dn
+groupMemberAttribute = member
+groupNameAttribute = cn
+host = {{ splunk.ldap.host_fqdn }}
+nestedGroups = 0
+network_timeout = 20
+pagelimit = -1
+port = {{ splunk.ldap.port }}
+realNameAttribute = displayname
+sizelimit = 1000
+timelimit = 15
+userBaseDN = dc=fakelabs,dc=io
+userNameAttribute = uid

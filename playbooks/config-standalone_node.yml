@@ -1,0 +1,8 @@
+# deploy and configure standalone node
+- hosts: standalone
+  become: yes
+  roles:
+    - splunk_common
+    - standalone
+    - license_master
+  

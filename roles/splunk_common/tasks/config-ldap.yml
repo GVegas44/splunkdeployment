@@ -1,0 +1,16 @@
+---
+# FreeIPA
+# The bindDNPassword is stored in clear-text
+# until the splunk server is restarted
+- name: configuring freeIPA integration
+  template:
+    src: templates/ipa_auth.j2
+    dest: "{{ splunk.home }}/etc/system/local/authentication.conf"
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+    mode: 0640
+  notify:
+    - "restart {{ splunk.service_name }}"
+  tags:
+    - ldap
+

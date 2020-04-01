@@ -1,0 +1,41 @@
+---
+- name: create ssl directory
+  file:
+    path: "{{ splunk.home }}/etc/auth/{{ splunk.ssl_dir }}"
+    state: directory
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+  when:
+    - splunk.ssl_dir is defined
+    - splunk.ssl_dir
+
+- name: copy splunk web certificate to remote system(s)
+  copy:
+    src: "files/{{ splunk.web_ssl_cert }}"
+    dest: "{{ splunk.home }}/etc/auth/{{ splunk.ssl_dir }}/{{ splunk.web_ssl_cert }}"
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+    mode: 0600
+  when:
+      - splunk.ssl_dir is defined
+      - splunk.ssl_dir
+      - splunk.web_ssl_cert is defined
+      - splunk.web_ssl_cert
+
+- name: copy splunk web private key to remote system(s)
+# Note: Splunk Web does not support password-protected private keys.
+  copy:
+    src: "files/{{ splunk.web_ssl_privKey }}"
+    dest: "{{ splunk.home }}/etc/auth/{{ splunk.ssl_dir }}/{{ splunk.web_ssl_privKey }}"
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+    mode: 0600
+  when:
+    - splunk.ssl_dir is defined
+    - splunk.ssl_dir
+    - splunk.web_ssl_privKey is defined
+    - splunk.web_ssl_privKey
+
+# restart splunkd
+...
+

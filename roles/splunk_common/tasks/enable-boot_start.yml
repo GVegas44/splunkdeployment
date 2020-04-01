@@ -1,0 +1,8 @@
+---
+# 
+  - name: enable boot start and systemd mgmt
+    command: "{{ splunk.exec }} enable boot-start -systemd-managed 1 -user {{ splunk.user }} --accept-license --answer-yes --no-prompt"
+    tags:
+      - runonce
+      - install
+

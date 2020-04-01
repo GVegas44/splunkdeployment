@@ -1,0 +1,46 @@
+---
+# copy and install splunk rpm
+
+  - name: create splunk work directory
+    file:
+      path: "{{ splunk.work_dir }}"
+      state: directory
+      mode: 0700
+    tags: install
+
+  - name: copy splunk package to work directory
+    copy:
+      src: "files/{{ splunk.pkg }}"
+      dest: "{{ splunk.work_dir }}/{{ splunk.pkg }}"
+      mode: 0644
+    tags: install
+
+#  - name: verify file copied correctly (sha256)
+#    stat:
+#      path: "{{ splunk.work_dir }}/{{ splunk.pkg }}"
+#      checksum_algorithm: sha256
+#    register: hash
+#    tags: install
+#
+#  - debug:
+#      msg: "SHA256 Checksum: Good"
+#    when: "hash.stat.checksum|string in splunk.pkg_hash"
+#    tags: install
+#
+  - name: install splunk package
+    yum:
+      name: "{{ splunk.work_dir }}/{{ splunk.pkg }}"
+      state: present
+    when:
+      - ansible_facts['distribution'] == "RedHat" or ansible_distribution == 'CentOS'
+    tags: install
+
+  - name: set splunk directory ownership
+    file:
+      path: /opt/splunk
+      state: directory
+      recurse: yes
+      owner: splunk
+      group: splunk
+    tags: install
+

@@ -1,0 +1,14 @@
+---
+#
+- name: configure firewall
+  firewalld:
+    port: "{{ item }}"
+    permanent: yes
+    immediate: yes
+    state: enabled
+  loop:
+    - "{{ splunk.web_port }}/tcp"
+    - "{{ splunk.mgmt_port }}/tcp"
+  tags:
+    - firewall
+

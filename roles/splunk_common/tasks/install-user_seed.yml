@@ -1,0 +1,11 @@
+---
+# 
+- name: copy user-seed.conf to splunk directory
+  copy:
+    src: files/user-seed.conf
+    dest: /opt/splunk/etc/system/local/user-seed.conf
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+    mode: 0640
+  tags: install
+

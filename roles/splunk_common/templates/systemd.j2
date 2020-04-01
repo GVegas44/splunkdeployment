@@ -1,0 +1,18 @@
+[Unit]
+After=network.target
+Description="Splunk"
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/opt/splunk/bin/splunk _internal_launch_under_systemd
+LimitNOFILE=65536
+SuccessExitStatus=51 52
+RestartPreventExitStatus=51
+RestartForceExitStatus=52
+User={{splunk_user}}
+Delegate=true
+CPUShares=1024
+
+[Install]
+WantedBy=multi-user.target

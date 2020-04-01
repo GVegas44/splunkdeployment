@@ -1,0 +1,30 @@
+---
+# tasks file for license_master
+- name: copy Splunk license to node
+  copy: 
+    src: "{{ splunk.license }}" 
+    dest: "{{ splunk.home }}/etc/licenses/license.lic"
+    owner: "{{ splunk.user }}"
+    group: "{{ splunk.group }}"
+    mode: '0600' 
+  tags:
+    - license
+
+- name: install Splunk license 
+  command: "{{ splunk.exec }} add licenses {{ splunk.home }}/etc/licenses/license.lic -auth {{ splunk.admin_user }}:{{ splunk.password }}"
+  register: result_retval
+  become: yes
+  become_user: "{{ splunk.user }}"
+  notify: 
+    - restart Splunkd
+  tags:
+    - license
+
+- name: remove copied license (copy was installed)
+  file:
+    path: "{{ splunk.home }}/etc/licenses/license.lic"
+    state: absent
+  tags:
+    - license
+
+
