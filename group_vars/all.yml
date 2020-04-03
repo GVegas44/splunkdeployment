@@ -33,6 +33,31 @@ splunk:
     web_ssl_privKey_password: # Optional, see enable-ssl_web.yml
     server_ssl_cert:
     service_name: "Splunkd"
+    apps:
+      - 'mitre-attack-app-for-splunk_210.tgz'
+      - 'splunk-add-on-for-unix-and-linux_701.tgz'
+      - 'splunk-add-on-for-zeek-aka-bro_400.tgz'
+      - 'add-on-for-bro-ids_222.tgz'
+      - 'bloodhound-app-for-splunk_121.tgz'
+      - 'cb-defense-add-on-for-splunk_204.tgz'
+      - 'cb-defense-app-for-splunk_116.tgz'
+      - 'linux-iptables-add-on_134.tgz'
+      - 'meta-woot_300.tgz'
+      - 'pulse-connect-secure-add-on-for-splunk_112.tgz'
+      - 'security-onion-app-for-splunk-software_20.tgz'
+      - 'splunk-add-on-for-carbon-black_110.tgz'
+      - 'splunk-add-on-for-f5-big-ip_300.tgz'
+      - 'splunk-add-on-for-juniper_130.tgz'
+      - 'splunk-add-on-for-microsoft-active-directory_100.tgz'
+      - 'splunk-add-on-for-microsoft-iis_101.tgz'
+      - 'splunk-add-on-for-microsoft-sql-server_140.tgz'
+      - 'splunk-app-for-cef_230.tgz'
+      - 'splunk-common-information-model-cim_4150.tgz'
+      - 'splunk-security-essentials_306.tgz'
+      - 'ta-pfsense_221.tgz'
+      - 'threathunting_141.tgz'
+      - 'windows-event-logs-analysis_151.tgz'
+    app_path: "/opt/splunk/etc/apps"
 
 standalone:
     password: "Tr0nRul3z@1$$CPT" 

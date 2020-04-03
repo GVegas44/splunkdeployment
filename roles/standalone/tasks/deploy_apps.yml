@@ -1,0 +1,10 @@
+---
+#
+- name: copy and extract apps
+  unarchive:
+    src: "files/{{ item }}"
+    dest: "{{ splunk.app_path }}"
+  loop: "{{ splunk.apps }}"
+  become: yes
+  become_user: "{{ splunk.user }}"
+
