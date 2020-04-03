@@ -1,2 +1,7 @@
 ---
-# handlers file for standalone
+# handlers file for splunk_common
+- name: restart Splunkd
+  systemd:
+    name: "{{ splunk.service_name | default('Splunkd') }}"
+    state: restarted
+
