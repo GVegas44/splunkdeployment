@@ -1,0 +1,6 @@
+# Add Users for Splunk 
+- name: Add Splunk Users
+  command: "{{ splunk.exec }} add user {{ item }} -password {{ config_users.password }} -role user -force-change-pass true"
+  loop: "{{ config_users.users }}"
+  become: yes
+  become_user: "{{ splunk.user }}"

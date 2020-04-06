@@ -2,13 +2,10 @@
 - name: configure recieving port
   ini_file:
     dest: "{{ splunk.home }}/etc/system/local/inputs.conf"
-    section: "splunktcp://{{ splunk.forwarding_port }}"
+    section: "splunktcp://{{ splunk.forwarder_port }}"
     option: "disabled"
     value: "0"
     owner: "{{ splunk.user }}"
     group: "{{ splunk.group }}"
   notify: 
     - "restart {{ splunk.service_name }}"
-  when:
-    - splunk.receiving_port is defined
-

@@ -58,7 +58,6 @@ splunk:
       - 'threathunting_141.tgz'
       - 'windows-event-logs-analysis_151.tgz'
     app_path: "/opt/splunk/etc/apps"
-
 standalone:
     password: "Tr0nRul3z@1$$CPT" 
     admin_user: admin
