@@ -15,3 +15,6 @@ node2
 
 [standalone]
 node1
+
+[test]
+testsplunk ansible_host=10.0.40.32

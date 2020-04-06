@@ -25,12 +25,12 @@ splunk:
     pkg_hash: "dc331cb6ea2a29ff547cd125d1edccec4592bf8e5a5f6299e549cea215efdbb1"
     forwarder_port: 9997
     mgmt_port: 8089
-    ssl_dir: splunk_asc
+    ssl_dir: splunk_tron
     web_port: 8000
     web_enableSSL: True
-    web_ssl_cert: "asc-webcert.pem"
-    web_ssl_privKey: "asc-webcert_priv.key"
-    web_ssl_privKey_password: # Optional, see enable-ssl_web.yml
+    web_ssl_cert: "tron-webcert.pem"
+    web_ssl_privKey: "tron-webcert_priv.key"
+    web_ssl_privKey_password: "Tr0nRul3z@1$$CPT"
     server_ssl_cert:
     service_name: "Splunkd"
     apps:
