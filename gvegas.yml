@@ -1,5 +1,0 @@
----
-- import_playbook: playbooks/config-search_head.yml
-- import_playbook: playbooks/config-standalone_node.yml
-...
-
