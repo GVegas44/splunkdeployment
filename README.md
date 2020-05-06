@@ -1,3 +1,6 @@
+Created By WO1 Garcia, Gabriel
+Email: gabriel.a.garcia80.mil@mail.mil or ggarciasnt@gmail.com
+
 Playbook to setup connectivity between Ansible host or Master laptop deploy splunk
 
 Edit Inventory file to reflect your environment
