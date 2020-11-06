@@ -3,19 +3,11 @@
 config_users:
     password: "1qaz2wsx!QAZ@WSX"
     users:
-      - 'fhill'
       - 'ggarcia'
-      - 'astrack'
       - 'tmuncy'
-      - 'jcoles'
       - 'rweigel'
-      - 'dformato'
-      - 'rgibbs'
       - 'nrios'
-      - 'brich'
-      - 'shudson'
       - 'dpace'
-      - 'jkuhn'
       - 'wevans'
       - 'jscott'
       - 'jcrayton'

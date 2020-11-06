@@ -31,8 +31,8 @@
     yum:
       name: "{{ splunk.work_dir }}/{{ splunk.pkg }}"
       state: present
-    when:
-      - ansible_facts['distribution'] == "RedHat" or ansible_distribution == 'CentOS'
+#    when:
+#      - ansible_facts['distribution'] == "RedHat" or ansible_distribution == 'CentOS'
     tags: install
 
   - name: set splunk directory ownership
